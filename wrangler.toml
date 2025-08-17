@@ -1,0 +1,29 @@
+name = "visit-png"
+compatibility_date = "2024-01-01"
+
+[build]
+command = "npm run build"
+
+[[pages_build_output_dir]]
+path = "dist"
+
+[env.production]
+name = "visit-png-prod"
+
+[env.staging]
+name = "visit-png-staging"
+
+[site]
+bucket = "./dist"
+entry-point = "workers-site"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "your-kv-namespace-id"
+preview_id = "your-kv-preview-id"
+
+[env.production.vars]
+ENVIRONMENT = "production"
+
+[env.staging.vars]
+ENVIRONMENT = "staging"
