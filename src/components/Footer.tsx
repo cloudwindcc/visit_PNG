@@ -10,12 +10,12 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
     {
       title: '投资南太平洋',
       url: 'https://investsouthpacific.com',
-      description: '南太平洋地区投资机会'
+      description: '南太平洋地区投资机会 - 探索斐济、萨摩亚等岛国的投资潜力'
     },
     {
-      title: '投资新几内亚',
+      title: '投资新几内亚门户',
       url: 'https://pnginvestor.com',
-      description: '巴布亚新几内亚投资指南'
+      description: '巴布亚新几内亚投资权威指南 - 石油天然气、矿业、农业、旅游业的完整投资机会与政策解读'
     }
   ];
 

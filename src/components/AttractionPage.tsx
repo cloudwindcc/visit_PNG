@@ -21,17 +21,22 @@ export const AttractionPage: React.FC<AttractionPageProps> = ({ attraction, inde
 
   const audioSrc = `/audio/${getAudioFilename(index, attraction.english_name)}`;
   
-  // Generate image filename based on English name
-  const getImageFilename = (englishName: string, format: 'webp' | 'jpg' = 'webp') => {
-    return englishName.toLowerCase()
-      .replace(/\s+/g, '-')
-      .replace(/[^\w-]/g, '')
-      .replace(/--+/g, '-')
-      + `.${format}`;
+  // Map English names to actual image filenames
+  const imageFilenameMap: { [key: string]: string } = {
+    'Kokoda Track': 'kokoda-track.jpg',
+    'Port Moresby Nature Park': 'port-moresby-nature-park.jpg',
+    'Mount Tavurvur': 'mount-tavurvur.jpg',
+    'Sepik River': 'sepik-river.jpg',
+    'Mount Wilhelm': 'mount-wilhelm.jpg',
+    'Goroka': 'asaro-mudmen.jpg',
+    'Kimbe Bay': 'kimbe-bay.jpg',
+    'Kuk Early Agricultural Site': 'kuk-site.jpg',
+    'Tari Valley': 'huli-wigmen.jpg',
+    'Alotau': 'milne-bay.jpg'
   };
 
-  const imageSrcWebP = `/images/${getImageFilename(attraction.english_name, 'webp')}`;
-  const imageSrcJpg = `/images/${getImageFilename(attraction.english_name, 'jpg')}`;
+  const imageFilename = imageFilenameMap[attraction.english_name] || 'default.jpg';
+  const imageSrc = `/images/${imageFilename};`}```json5```json5{
 
   // Generate SEO-optimized alt text
   const getAltText = (attraction: Attraction) => {
@@ -51,6 +56,8 @@ export const AttractionPage: React.FC<AttractionPageProps> = ({ attraction, inde
     const activity = activityMap[attraction.english_name] || '旅游';
     return `${attraction.chinese_name}${activity}景点 - 巴布亚新几内亚旅游官方图片`;
   };
+
+  const imageSrc = `/images/${imageFilename}`;
 
   // Generate activity type for H1
   const getActivityType = (englishName: string) => {
@@ -76,23 +83,19 @@ export const AttractionPage: React.FC<AttractionPageProps> = ({ attraction, inde
     <div className="min-h-screen relative overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <picture>
-          <source srcSet={imageSrcWebP} type="image/webp" />
-          <source srcSet={imageSrcJpg} type="image/jpeg" />
-          <img
-            src={imageSrcJpg}
-            alt={altText}
-            title={`${attraction.chinese_name} - ${attraction.english_name}`}
-            loading="lazy"
-            decoding="async"
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.style.display = 'none';
-              target.setAttribute('alt', `${attraction.chinese_name}图片加载失败`);
-            }}
-          />
-        </picture>
+        <img
+          src={imageSrc}
+          alt={altText}
+          title={`${attraction.chinese_name} - ${attraction.english_name}`}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.style.display = 'none';
+            target.setAttribute('alt', `${attraction.chinese_name}图片加载失败`);
+          }}
+        />
         <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/80 to-white/70"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
       </div>
