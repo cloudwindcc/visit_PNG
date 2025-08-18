@@ -17,7 +17,8 @@
       "Bash(npm install)",
       "Bash(npm install:*)",
       "Bash(mv:*)",
-      "Bash(yarn:*)"
+      "Bash(yarn:*)",
+      "Bash(npm run preview)"
     ],
     "defaultMode": "acceptEdits"
   }
