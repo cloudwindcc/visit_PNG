@@ -36,7 +36,7 @@ export const AttractionPage: React.FC<AttractionPageProps> = ({ attraction, inde
   };
 
   const imageFilename = imageFilenameMap[attraction.english_name] || 'default.jpg';
-  const imageSrc = `/images/${imageFilename};`}```json5```json5{
+  const imageSrc = `/images/${imageFilename}`;
 
   // Generate SEO-optimized alt text
   const getAltText = (attraction: Attraction) => {
@@ -56,8 +56,6 @@ export const AttractionPage: React.FC<AttractionPageProps> = ({ attraction, inde
     const activity = activityMap[attraction.english_name] || '旅游';
     return `${attraction.chinese_name}${activity}景点 - 巴布亚新几内亚旅游官方图片`;
   };
-
-  const imageSrc = `/images/${imageFilename}`;
 
   // Generate activity type for H1
   const getActivityType = (englishName: string) => {

@@ -8,14 +8,14 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ className = '' }) => {
   const officialLinks = [
     {
-      title: '投资南太平洋',
-      url: 'https://investsouthpacific.com',
-      description: '南太平洋地区投资机会 - 探索斐济、萨摩亚等岛国的投资潜力'
+      title: '关于我们',
+      url: '/about',
+      description: '了解更多关于巴布亚新几内亚旅游指南'
     },
     {
-      title: '投资新几内亚门户',
-      url: 'https://pnginvestor.com',
-      description: '巴布亚新几内亚投资权威指南 - 石油天然气、矿业、农业、旅游业的完整投资机会与政策解读'
+      title: '联系我们',
+      url: '/contact',
+      description: '获取旅游咨询和支持'
     }
   ];
 
@@ -24,7 +24,7 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="flex flex-col items-center">
           <h3 className="text-sm font-semibold text-gray-700 mb-3">
-            官方友情链接
+            网站导航
           </h3>
           <div className="flex flex-wrap justify-center gap-4">
             {officialLinks.map((link, index) => (

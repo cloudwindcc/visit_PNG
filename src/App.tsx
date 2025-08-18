@@ -99,16 +99,55 @@ function App() {
               </div>
             </div>
             
-            <button
-              onClick={() => setShowVisualization(!showVisualization)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                showVisualization
-                  ? 'bg-[#5751D5] text-white'
-                  : 'bg-white/20 text-[#161615] hover:bg-white/30'
-              }`}
-            >
-              {showVisualization ? '返回景点' : '数据概览'}
-            </button>
+            <div className="flex items-center gap-2 md:gap-4 flex-wrap justify-center">
+              {/* Investment Links */}
+              <div className="flex items-center gap-2 md:gap-4 text-xs md:text-sm order-2 md:order-1">
+                <a 
+                  href="https://investsouthpacific.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-[#161615] hover:text-[#5751D5] transition-colors px-2 py-1 rounded hover:bg-white/20"
+                >
+                  投资南太平洋
+                </a>
+                <a 
+                  href="https://pnginvestor.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-[#161615] hover:text-[#5751D5] transition-colors font-medium px-2 py-1 rounded hover:bg-white/20"
+                >
+                  投资新几内亚
+                </a>
+              </div>
+              
+              {/* Language Switcher */}
+              <div className="flex items-center gap-1 md:gap-2 order-1 md:order-2">
+                <a 
+                  href="/" 
+                  className="px-2 md:px-3 py-1 text-xs md:text-sm rounded-full bg-white/20 text-[#161615] hover:bg-white/30 transition-all"
+                >
+                  中文
+                </a>
+                <a 
+                  href="/en.html" 
+                  className="px-2 md:px-3 py-1 text-xs md:text-sm rounded-full bg-[#5751D5] text-white hover:bg-[#5751D5]/90 transition-all"
+                >
+                  English
+                </a>
+              </div>
+              
+              {/* Data Button */}
+              <button
+                onClick={() => setShowVisualization(!showVisualization)}
+                className={`px-3 md:px-4 py-1 md:py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-200 order-3 ${
+                  showVisualization
+                    ? 'bg-[#5751D5] text-white'
+                    : 'bg-white/20 text-[#161615] hover:bg-white/30'
+                }`}
+              >
+                {showVisualization ? '返回景点' : '数据概览'}
+              </button>
+            </div>
           </div>
         </div>
       </header>
